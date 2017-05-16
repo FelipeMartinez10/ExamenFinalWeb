@@ -5,13 +5,20 @@ import { createContainer} from "meteor/react-meteor-data"
 
 import TweetsResults from "./TweetsResults.jsx";
 import {Tweets} from "../api/Tweets.js";
+import ColombiaMap from "./ColombiaMap.jsx";
+import Overlay from "./Overlay.jsx";
 
 export class App extends Component {
   constructor(props) {
     super(props);
+    this.projection = null;
 
   }
-
+  setProjection(projection)
+  {
+    this.projection = projection;
+    console.log('bien');
+  }
   changeQuery(evt) {
     if (evt.key !== "Enter") {
       return;
@@ -27,18 +34,26 @@ export class App extends Component {
 
   render() {
     console.log("render!");
+    console.log(this.props.tweets);
     return (
       <div>
-        <input type="text" onKeyPress={this.changeQuery.bind(this)} placeholder="Query"/>
+        <ColombiaMap width="600"
+          height="600"
+          setProjection={this.setProjection.bind(this)}></ColombiaMap>
+          <Overlay width="600"
+            height="600"
+            setProjection={this.setProjection.bind(this)}></Overlay>
         { this.props && this.props.err ?
-          <div>Error: {this.props.err}</div> :
-          <span></span>
-        }
-        <h2>Results:</h2>
-        {this.props && this.props.tweets ?
-          <TweetsResults tweets={this.props.tweets}/> :
-          <p>Enter a query</p>
-        }
+        <div>Error: {this.props.err}</div> :
+        <span></span>
+      }
+      <input type="text" onKeyPress={this.changeQuery.bind(this)} placeholder="Query"/>
+      <h2>Results:</h2>
+      {this.props && this.props.tweets ?
+        <TweetsResults tweets={this.props.tweets}/> :
+        <p>Enter a query</p>
+      }
+
 
       </div>
     );
