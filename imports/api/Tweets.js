@@ -19,8 +19,8 @@ if (Meteor.isServer) {
 
   // This method will trigger the streamer
   Meteor.methods({
-    "twitter.stream"(query) {
-      console.log("Twitter search" + query);
+    "twitter.stream"() {
+      console.log("Twitter search");
 
       // Create the Twitter object
       let client = new Twitter({

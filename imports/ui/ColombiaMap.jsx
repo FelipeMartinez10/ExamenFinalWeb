@@ -261,7 +261,7 @@ export default class ColombiaMap extends Component {
 
 	render() {
 		return (
-			<div className="colombiaMap">
+			<div className="colombiaMap" style={{position:"absolute",zIndex:1}}>
 				<svg
 					ref={(svg) => {this.svg = svg; }}>
 				</svg>

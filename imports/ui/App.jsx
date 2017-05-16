@@ -17,44 +17,54 @@ export class App extends Component {
   setProjection(projection)
   {
     this.projection = projection;
-    console.log('bien');
   }
-  changeQuery(evt) {
-    if (evt.key !== "Enter") {
+  getProjection()
+  {
+    return this.projection;
+  }
+  changeQuery() {
+    /*if (evt.key !== "Enter") {
       return;
-    }
+    }*/
     // "this" will change in the method call, so I need to save it
     let component = this;
-
-    console.log(evt.target.value);
-    Meteor.call("twitter.stream", evt.target.value);
+    //console.log(evt.target.value);
+    Meteor.call("twitter.stream");
 
   }
 
 
   render() {
-    console.log("render!");
-    console.log(this.props.tweets);
+    //console.log("render!");
+    //console.log(this.props.tweets);
     return (
-      <div>
-        <ColombiaMap width="600"
-          height="600"
-          setProjection={this.setProjection.bind(this)}></ColombiaMap>
-          <Overlay width="600"
-            height="600"
-            setProjection={this.setProjection.bind(this)}></Overlay>
-        { this.props && this.props.err ?
-        <div>Error: {this.props.err}</div> :
-        <span></span>
-      }
-      <input type="text" onKeyPress={this.changeQuery.bind(this)} placeholder="Query"/>
-      <h2>Results:</h2>
-      {this.props && this.props.tweets ?
-        <TweetsResults tweets={this.props.tweets}/> :
-        <p>Enter a query</p>
-      }
-
-
+      <div className='container-fluid'>
+        <div className='row'>
+          <div className='col-md-6'>
+            <h1>Tweeter Streamer Colombia</h1>
+          </div>
+        </div>
+        <div className='row'>
+          <div className='col-md-6'>
+            <ColombiaMap width="600"
+              height="600"
+              data={{RISARALDA:0}}
+              setProjection={this.setProjection.bind(this)}></ColombiaMap>
+              {this.props && this.props.tweets ?
+                <Overlay getProjection={this.getProjection.bind(this)} tweets={this.props.tweets}></Overlay> :
+                <p></p>
+              }
+          </div>
+          <div className='col-md-5'>
+            <button type="button" onClick={this.changeQuery.bind(this)}>Start</button>
+            <h2>Results:</h2>
+            {this.props && this.props.tweets ?
+              <TweetsResults tweets={this.props.tweets}/> :
+              <p>Enter a query</p>
+            }
+          </div>
+          <div className='col-md-1'></div>
+        </div>
       </div>
     );
   }

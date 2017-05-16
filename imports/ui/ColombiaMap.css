@@ -4,7 +4,10 @@
   fill: #eee;
   pointer-events: all;
 }
-
+#myCanvas
+{
+  border:1px solid #000000
+}
 .map-layer {
   fill: #fff;
   stroke: #aaa;
