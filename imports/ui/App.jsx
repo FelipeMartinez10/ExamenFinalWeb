@@ -56,12 +56,22 @@ export class App extends Component {
               }
           </div>
           <div className='col-md-5'>
-            <button type="button" onClick={this.changeQuery.bind(this)}>Start</button>
-            <h2>Results:</h2>
-            {this.props && this.props.tweets ?
-              <TweetsResults tweets={this.props.tweets}/> :
-              <p>Enter a query</p>
-            }
+            <div className='row row-eq-height '>
+              <div className='col-md-6'>
+                  <button className='btn btn-primary center-block boton' type="button" onClick={this.changeQuery.bind(this)}>Start</button>
+              </div>
+              <div className='col-md-6'>
+                <h2>Results:</h2>
+              </div>
+            </div>
+            <div className='row'>
+              <div className='col-md-12'>
+                {this.props && this.props.tweets ?
+                  <TweetsResults tweets={this.props.tweets}/> :
+                  <p>Enter a query</p>
+                }
+              </div>
+            </div>
           </div>
           <div className='col-md-1'></div>
         </div>

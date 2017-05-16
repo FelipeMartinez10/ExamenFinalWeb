@@ -30,3 +30,34 @@ text.big-text{
 .effect-layer text, text.dummy-text{
   font-size: 12px;
 }
+.box{
+    border-radius: 1em;
+    box-shadow: 1em 1em 2em 0em rgba(0, 0, 0, 0.16), 0em 2em 4em 0em rgba(0, 0, 0, 0.12);
+    padding: 1em 2em;
+    display: block;
+    margin-top: 3em;
+    border: 0.1em solid rgba(0, 0, 0, 0.1);
+}
+.box-icon
+{
+  margin: 0 auto;
+  vertical-align: top;
+  margin-top: -3em;
+  display: table;
+}
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+.boton
+{
+  position: absolute;
+  bottom:  0.5em;
+  left: 50%;
+}
+.tweet-user
+{
+  font-weight: bold;
+}
