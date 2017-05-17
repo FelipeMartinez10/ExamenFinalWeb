@@ -22,7 +22,8 @@ Codigo: 201328315
 4. Ejecutar el comando ```meteor npm install``` en la carpeta del repositorio clonado.
 5. Ejecutar el comando ```meteor``` en la carpeta del repositorio clonado.
 6. El proyecto debería ahora estar corriendo en [http://localhost:3000](http://localhost:3000)
-7. Listo!
+7. Presionar el botón start para iniciar el streaming de Tweets.
+8. Listo!
 
 ## Tecnologías:
 Este proyecto utiliza
