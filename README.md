@@ -18,8 +18,8 @@ Codigo: 201328315
       * export TWITTER_CONSUMER_SECRET=<<CONSUMER_SECRET>>
       * export TWITTER_ACCESS_TOKEN_KEY=<<ACCESS_TOKEN_KEY>>
       * export TWITTER_ACCESS_TOKEN_SECRET=<<ACCESS_TOKEN_SECRET>>
-3. Ejecutar el comando ```meteor npm install``` en la carpeta en la cual clonó el repositorio.
-4. Ejecutar el comando ```meteor``` en la carpeta en la cual clonó el repositorio.
+3. Ejecutar el comando ```meteor npm install``` en la carpeta del repositorio clonado.
+4. Ejecutar el comando ```meteor``` en la carpeta del repositorio clonado.
 5. El proyecto debería ahora estar corriendo en [http://localhost:3000](http://localhost:3000)
 7. Listo!
 
