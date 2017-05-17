@@ -36,7 +36,7 @@ Este proyecto utiliza
 ## Plus:
 Este proyecto permite visualizar el nombre del último usuario que realizo un Tweet en una ubicación específica. Para esto solo es necesario marcar el checkbox y de esta manera se muestra el nombre de usuario y se resalta la ubicación de su Tweet.
 
-## Herramientas Usadas:
+## Herramientas Utilizadas:
 * Para realizar este proyecto se utilizaron como boilerplate los siguientes proyectos:
    * [ColombiaVisualizationReact](https://github.com/john-guerra/ColombiaVisualizationReact)
    * [twitterStreamerMeteor](https://github.com/john-guerra/twitterStreamerMeteor)
