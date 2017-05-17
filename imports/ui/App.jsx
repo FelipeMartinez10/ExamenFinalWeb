@@ -111,6 +111,14 @@ export class App extends Component {
           </div>
           <div className='col-md-1'></div>
         </div>
+        <div className='row'>
+          <hr className='divider'></hr>
+          <div className='col-md-1'></div>
+          <div className='col-md-11'>
+            <h4><a target='_blank' className='link' href='http://www.piazuelo.com'>Felipe Martinez Piazuelo</a></h4>
+          </div>
+          <hr className='divider'></hr>
+        </div>
       </div>
     );
   }
