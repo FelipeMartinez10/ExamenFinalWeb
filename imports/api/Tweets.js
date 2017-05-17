@@ -13,6 +13,7 @@ export const Tweets = new Mongo.Collection("tweets");
 
 // Twitter streamer should run only on the server
 if (Meteor.isServer) {
+//  Tweets.remove({});
   Meteor.publish("tweets", function tweetsPublication() {
     return Tweets.find({}, {sort: {created_at: -1}, limit:4});
   });

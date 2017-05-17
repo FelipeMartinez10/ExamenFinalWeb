@@ -55,7 +55,13 @@ text.big-text{
 {
   position: absolute;
   bottom:  0.5em;
-  left: 50%;
+  left: 20%;
+}
+.check
+{
+  position: absolute;
+  bottom:  0.5em;
+  left: 10%;
 }
 .tweet-user
 {
