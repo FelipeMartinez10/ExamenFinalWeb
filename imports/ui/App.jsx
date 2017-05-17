@@ -7,12 +7,24 @@ import TweetsResults from "./TweetsResults.jsx";
 import {Tweets} from "../api/Tweets.js";
 import ColombiaMap from "./ColombiaMap.jsx";
 import Overlay from "./Overlay.jsx";
+import Overlay2 from "./Overlay2.jsx";
 
 export class App extends Component {
   constructor(props) {
     super(props);
     this.projection = null;
+    this.state = {
+    zoomed: 0,
+    checked: false,
+    };
 
+  }
+  setZoomed(z)
+  {
+    //1 sera zoom in.   0 zoom out.
+    this.setState({
+      zoomed: z,
+    });
   }
   setProjection(projection)
   {
@@ -30,7 +42,15 @@ export class App extends Component {
     let component = this;
     //console.log(evt.target.value);
     Meteor.call("twitter.stream");
-
+  }
+  handleInputChange(event)
+  {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+    this.setState({
+      checked: value,
+    });
   }
 
 
@@ -49,16 +69,32 @@ export class App extends Component {
             <ColombiaMap width="600"
               height="600"
               data={{RISARALDA:0}}
-              setProjection={this.setProjection.bind(this)}></ColombiaMap>
+              setProjection={this.setProjection.bind(this)}
+              setZoomed={this.setZoomed.bind(this)}></ColombiaMap>
               {this.props && this.props.tweets ?
-                <Overlay getProjection={this.getProjection.bind(this)} tweets={this.props.tweets}></Overlay> :
+                <Overlay getProjection={this.getProjection.bind(this)} tweets={this.props.tweets} zoom={this.state.zoomed}></Overlay> :
+                <p></p>
+              }
+              {this.props && this.props.tweets && this.state.checked ?
+                <Overlay2 getProjection={this.getProjection.bind(this)} tweets={this.props.tweets}></Overlay2> :
                 <p></p>
               }
           </div>
           <div className='col-md-5'>
             <div className='row row-eq-height '>
-              <div className='col-md-6'>
+              <div className='col-md-3'>
                   <button className='btn btn-primary center-block boton' type="button" onClick={this.changeQuery.bind(this)}>Start</button>
+              </div>
+              <div className='col-md-3'>
+                <label className='check'>
+                  Show Users:
+                  <input
+                    name="users"
+                    type="checkbox"
+                    checked={this.state.checked}
+                    onChange={this.handleInputChange.bind(this)}
+                  style={{"marginLeft": "10px"}} />
+                </label>
               </div>
               <div className='col-md-6'>
                 <h2>Results:</h2>

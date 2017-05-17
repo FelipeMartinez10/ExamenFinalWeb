@@ -97,16 +97,18 @@ export default class ColombiaMap extends Component {
 
 		// When clicked, zoom in
 		function clicked(d) {
+			//console.log(me.props.setZoomed());
 		  var x, y, k;
-
 		  // Compute centroid of the selected path
 		  if (d && centered !== d) {
+				me.props.setZoomed(1);
 		    var centroid = path.centroid(d);
 		    x = centroid[0];
 		    y = centroid[1];
 		    k = 4;
 		    centered = d;
 		  } else {
+				me.props.setZoomed(0);
 		    x = width / 2;
 		    y = height / 2;
 		    k = 1;
@@ -126,7 +128,6 @@ export default class ColombiaMap extends Component {
 		function mouseover(d){
 		  // Highlight hovered province
 		  d3.select(this).style('fill', 'orange');
-
 		  // Draw effects
 		  textArt(nameFn(d));
 		}
