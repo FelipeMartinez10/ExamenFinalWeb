@@ -6,7 +6,7 @@ Codigo: 201328315
 
 
 ## Para correr este proyecto:
-1. Hacer ```git clone``` del repositorio.
+1. Hacer ```git clone https://github.com/f-martinez11/ExamenFinalWeb.git``` del repositorio.
 2. Definir en las variables de ejecución las credenciales proporcionadas por Twitter.
     * En windows:
       * set TWITTER_CONSUMER_KEY=<<CONSUMER_KEY>>
